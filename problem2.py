@@ -6,34 +6,25 @@ would come up with a new guess until it gets it right.
 """
 
 class Problem2():
-    def __init__(self, number):
+    def __init__(self):
         super(Problem2, self).__init__()
 
-        self.low = 0
-        self.high = 100
-        self.number = number
-        self.pivot = (self.high - self.low) // 2
-        print('initialization: guessing number: {} with initial pivot: {}'.format(self.number, self.pivot))
+    def guesser(self, number):
+        low = 0
+        high = 100
+        pivot = (high - low) // 2
 
-    def logic(self):
         for k in range(8):
-            print('iter {}: low: {}, high: {}, pivot: {}, number: {}'.format(k, self.low, self.high, self.pivot,
-            self.number))
+            if number == pivot :
+                print('Oh I know! Your number is {}! Took me {} tries.'.format(pivot, k))
+                return None
 
-            if self.number == self.pivot :
-                print('oh I know! your answer is {}!'.format(self.pivot))
-                return self.pivot
+            elif number > pivot:
+                low = pivot
+            elif number < pivot:
+                high = pivot
 
-            elif self.number > self.pivot:
-                self.low = self.pivot
+            pivot = low + (high-low) // 2
 
-            elif self.number < self.pivot:
-                self.high = self.pivot
-
-            self.pivot = self.low + (self.high-self.low) // 2
-
-problem2 = Problem2(42)
-
-problem2.logic()
-
-
+kernel = Problem2()
+kernel.guesser(17)
