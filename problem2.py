@@ -28,3 +28,5 @@ class Problem2():
 
 kernel = Problem2()
 kernel.guesser(17)
+
+print("Cheers -- g'bye mate")
